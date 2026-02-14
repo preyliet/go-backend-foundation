@@ -1,0 +1,17 @@
+package main
+
+import (
+	"fmt"
+	"os" // This package lets us talk to the system
+)
+
+func main() {
+	// Let's pretend you run: go run practice.go apples bananas
+	
+	// os.Args[0] is the program name (practice.go)
+	// os.Args[1] is the first word (apples)
+	// os.Args[2] is the second word (bananas)
+
+	fmt.Println("The first word you typed is:", os.Args[1])
+	fmt.Println("The second word you typed is:", os.Args[2])
+}
