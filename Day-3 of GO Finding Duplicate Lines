@@ -1,0 +1,37 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+func main() {
+	// 1. Create our empty Tally Sheet (Map)
+	// The Key is a string (the word), the Value is an int (the count)
+	counts := make(map[string]int)
+
+	fmt.Println("Type some words. Type 'exit' to see the results!")
+
+	scanner := bufio.NewScanner(os.Stdin)
+	
+	// 2. Keep reading lines until the user stops
+	for scanner.Scan() {
+		line := scanner.Text()
+		
+		if line == "exit" {
+			break
+		}
+
+		// 3. Add 1 to the count for this specific line
+		counts[line]++
+	}
+
+	// 4. Look through our Tally Sheet and print duplicates
+	fmt.Println("\n--- Lines you typed more than once ---")
+	for text, number := range counts {
+		if number > 1 {
+			fmt.Printf("Count: %d | Word: %s\n", number, text)
+		}
+	}
+}
