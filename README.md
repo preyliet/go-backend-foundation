@@ -5,3 +5,5 @@
 | **02: 1.2. Command-Line Arguments** | 🏗️ In Progress | Processing terminal input with os.Args and for range
 | **03: 1.3. Finding Duplicate Lines** | 🏗️ In Progress | Maps, Scanners, and Standard Input. 
 | **04: 1.4. Animated GIFs** | ✅ Completed | ![Lissajous Animation](./animation.gif?v=2)
+| **05: 1.4.  | ✅ Completed | 
+| **06: 1.4.  | ✅ Completed | 
