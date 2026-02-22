@@ -7,3 +7,4 @@
 | **04: 1.4. Animated GIFs** | ✅ Completed | ![Lissajous Animation](./animation.gif?v=2)
 | **05: 1.4.  | ✅ Completed | 
 | **06: 1.4.  | ✅ Completed | 
+| **07: 1.4.  | ✅ Completed | 
