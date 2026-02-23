@@ -1,1 +1,39 @@
+package main
 
+import (
+	"fmt"
+	"io"
+	"net/http"
+	"os"
+	"strings"
+)
+
+func main() {
+	for _, url := range os.Args[1:] {
+		// EXERCISE 1.8: Automatically add "http://" if the user forgets it
+		if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
+			url = "http://" + url
+		}
+
+		// 1. Make the request
+		resp, err := http.Get(url)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "fetch: %v\n", err)
+			os.Exit(1)
+		}
+
+		// EXERCISE 1.9: Print the HTTP Status Code (e.g., "200 OK" or "404 Not Found")
+		fmt.Printf("HTTP Status: %s\n", resp.Status)
+
+		// EXERCISE 1.7: Use io.Copy instead of ioutil.ReadAll
+		// Why? io.Copy streams the data directly to the terminal. 
+		// ioutil.ReadAll loads the ENTIRE website into your RAM first, which can crash your server if the file is huge.
+		_, err = io.Copy(os.Stdout, resp.Body)
+		resp.Body.Close() // ALWAYS close the connection
+
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "fetch: reading %s: %v\n", url, err)
+			os.Exit(1)
+		}
+	}
+}
