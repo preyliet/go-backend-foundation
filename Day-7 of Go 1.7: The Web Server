@@ -1,0 +1,24 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func main() {
+	// Whenever someone visits the root "/", call the "handler" function
+	http.HandleFunc("/", handler) 
+	
+	fmt.Println("Server is starting on http://localhost:8000")
+	
+	// Start the server on port 8000. 
+	// log.Fatal will stop the program if something goes wrong (like the port is busy)
+	log.Fatal(http.ListenAndServe("localhost:8000", nil))
+}
+
+// w is where we write our response (like our "pen")
+// r is the request we got from the user (what they asked for)
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "URL.Path = %q\n", r.URL.Path)
+}
