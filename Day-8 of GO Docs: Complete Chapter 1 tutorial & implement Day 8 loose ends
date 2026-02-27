@@ -1,0 +1,41 @@
+package main
+
+import "fmt"
+
+// 1. NAMED TYPE (Struct): Grouping related data
+type Server struct {
+	Name   string
+	URL    string
+	Status int // e.g., 200, 404, 500
+}
+
+func main() {
+	// Create a new Server "Object"
+	myServer := Server{
+		Name: "Production API",
+		URL:  "https://api.myapp.com",
+	}
+
+	fmt.Printf("Checking server: %s...\n", myServer.Name)
+
+	// 2. POINTERS: We pass the ADDRESS (&) so the function can 
+	// actually change the status inside the original myServer.
+	simulateCheck(&myServer, 200)
+
+	// 3. SWITCH: A cleaner way to handle the result
+	switch myServer.Status {
+	case 200:
+		fmt.Println("Result: Server is Healthy! ✨")
+	case 404:
+		fmt.Println("Result: Page Not Found 🚫")
+	case 500:
+		fmt.Println("Result: Server Crash 💥")
+	default:
+		fmt.Printf("Result: Unknown Status Code %d ❓\n", myServer.Status)
+	}
+}
+
+// simulateCheck takes a pointer (*) to a Server
+func simulateCheck(s *Server, code int) {
+	s.Status = code // Updating the original value via pointer
+}
