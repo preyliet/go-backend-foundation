@@ -1,6 +1,3 @@
-package main
-
-import "fmt"
 
 func main() {
 	// Variable of type uint8
@@ -15,4 +12,4 @@ func main() {
 	smalNegativeValue = -12
 	fmt.Println(smalNegativeValue)
 
-}
+	fmt.Println("RohanN") 
