@@ -11,6 +11,10 @@ This chapter covered the essential syntax and standard libraries required to bui
 - **1.7 Web Server**: Built a local echo server to handle HTTP requests.
 - **1.8 Loose Ends**: Mastered **Pointers**, **Structs**, and **Switch** statements for cleaner logic.
 
+## 📂 Chapter 2: Rules Of The House
+
+- **2.1 & 2.2**: Basic syntax and Command-Line Arguments using `os.Args`.
+
 ## 🛠️ Tech Stack
 - **Language**: Go (Golang)
 - **Tools**: VS Code, Git, Fedora Linux
